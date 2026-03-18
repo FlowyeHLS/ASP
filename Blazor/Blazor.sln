@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36203.30 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor", "Blazor\Blazor.csproj", "{2FFB3448-7B5D-4D40-B8C7-52B3E66BDF08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TODOlist", "TODOlist\TODOlist.csproj", "{A23CE02A-10C0-4F38-BA0C-FADA13F1C61F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2FFB3448-7B5D-4D40-B8C7-52B3E66BDF08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FFB3448-7B5D-4D40-B8C7-52B3E66BDF08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FFB3448-7B5D-4D40-B8C7-52B3E66BDF08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FFB3448-7B5D-4D40-B8C7-52B3E66BDF08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A23CE02A-10C0-4F38-BA0C-FADA13F1C61F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A23CE02A-10C0-4F38-BA0C-FADA13F1C61F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A23CE02A-10C0-4F38-BA0C-FADA13F1C61F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A23CE02A-10C0-4F38-BA0C-FADA13F1C61F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0496A92E-FB98-4E82-871E-B586F0962374}
+	EndGlobalSection
+EndGlobal
