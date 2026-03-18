@@ -5,9 +5,9 @@ namespace TODOlist.Components.Pages
 {
     public partial class TODO
     {
-        List<TODOitem> todos = [];
+        //List<TODOitem> todos = [];
 
-        HashSet<TODOitem> todo = [];
+        HashSet<TODOitem> todos = [];
 
         string task;
 
