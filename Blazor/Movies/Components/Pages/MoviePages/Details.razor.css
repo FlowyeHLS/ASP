@@ -1,0 +1,16 @@
+﻿.info 
+{
+    display: flex;
+
+}
+/*.info a
+{
+    width:50%;
+}*/
+.info .name
+{
+    min-width:25%;
+}
+    .info .value {
+        min-width: 25%;
+    }
