@@ -8,18 +8,13 @@ namespace Academy.Models
     public class Direction
     {
         [Key]
+        
         public byte direction_id { get; set; }
         [Required]
         [UniqDirectionName(ErrorMessage = "List direcion name cyshestvyet")]
         public string direction_name { get; set; }
-        //public override bool Equals(object? other)
-        //{
-        //    return this.direction_name.Equals((other as Direction).direction_name);
-        //}
-        //public override int GetHashCode()
-        //{
-        //    return HashCode.Combine(direction_name);
-        //}
+       //Navigation properties
+       public List<Group> Groups { get; set; } = new List<Group>();
 
 
     }
