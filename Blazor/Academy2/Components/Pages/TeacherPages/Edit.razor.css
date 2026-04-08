@@ -1,0 +1,13 @@
+﻿EditForm 
+{
+    width:100%;
+}
+.human-conteiner {
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+}
+.photo-conteiner
+{
+    width:40%;
+}
