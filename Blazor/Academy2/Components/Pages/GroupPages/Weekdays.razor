@@ -1,13 +1,35 @@
 ﻿<h3>Weekdays</h3>
 
-<ul class="weekdays">
+<ul class="weekdays form-control">
 @for(int i=0;i<7;i++)
     {
-        <li><InputCheckbox @bind-Value="day[i]"/>@DAYNAMES[i]</li>
+        <li>
+            <input type="checkbox" id="@DAYNAMES[i]"  @bind="day[i]" @bind:after="Compress"/>
+            @* <InputCheckbox id="@DAYNAMES[i]"  @bind-Value="day[i]" @onchange="Compress"/> *@
+            <label for="@DAYNAMES[i]"> @DAYNAMES[i]</label>
+        
+        </li>
     }
 </ul>
 
+            <div class="mb-3">
+                <label for="learning_days" class="form-label">mask:</label> 
+                <InputNumber id="mask" @bind-Value="mask" class="form-control" /> 
+                @* <ValidationMessage For="() => mask" class="text-danger" />  *@
+            </div>  
+
 @code {
     readonly string[] DAYNAMES = { "Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс" };
-    bool[] day = new bool[7];
+    bool[] day = new bool[77];
+
+    int mask;
+    void Compress()
+    {
+        mask = 0;
+        for(byte i = 0; i < 7; ++i)
+        {
+            // mask |= (1 << i) & Convert.ToByte(day[i]);
+            mask |= ((byte)(1 << i) & Convert.ToByte(day[i]));
+        }
+    }
 }
