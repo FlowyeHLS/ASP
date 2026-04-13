@@ -2,12 +2,12 @@
 {
     width:100%;
 }
-.human-conteiner {
+.human-container {
     width:100%;
     display:flex;
     justify-content:space-between;
 }
-.photo-conteiner
+.photo-container
 {
     width:40%;
 }
