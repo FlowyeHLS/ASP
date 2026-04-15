@@ -3,6 +3,7 @@
 @using Academy2.Models
 @inject IDbContextFactory<Academy2.Data.Academy2Context> DbFactory
 @inject NavigationManager NavigationManager
+@rendermode InteractiveServer
 
 <PageTitle>Edit</PageTitle>
 
@@ -77,11 +78,35 @@ else
 
           </div>
 
-          <div class="photo-container">
+          @* <div class="photo-container">
               <Photo />
               <input type="file" @bind="url"/>
-          </div>
 
+          </div> *@<div class="mb-3" style="heigh:40vh;align-content:center;">
+                     <h5>Type Discipline</h5>
+                 <InputSelect @bind-Value="discipline" class="form-control">
+                     @foreach(Discipline d in Disciplines)
+                        {
+                            <option value="@d.discipline_id">@d.discipline_name</option>
+                        }
+                    </InputSelect>
+
+                    <button type="button" class="btn btn-primary" @onclick="AddDiscipline">Add</button>
+
+                    <ul>
+                        @foreach(TeacherDisciplineRelation tdr in NewDisciplines)
+                            {
+                                <li>@tdr.Discipline.discipline_name</li>
+                            }
+                        </ul>
+                        <hr />
+                    <ul>
+                        @foreach(TeacherDisciplineRelation tdr in TDR)
+                            {
+                                <li>@tdr.Discipline.discipline_name</li>
+                            }
+                        </ul>
+                    </div>
           </div>
           
                 <button type="submit" class="btn btn-primary">Save</button>
@@ -100,22 +125,45 @@ else
 
     [SupplyParameterFromForm]
     private Teacher? Teacher { get; set; }
-    IBrowserFile url { get; set; }
+
+    //////
+
+    ICollection<Discipline>? Disciplines { get; set; }
+    ICollection<TeacherDisciplineRelation>? TDR { get; set; }
+    List<TeacherDisciplineRelation> NewDisciplines = new List<TeacherDisciplineRelation>();
+
+    int discipline;
+
+    //////
+
+    //IBrowserFile url { get; set; }
 
     void LoadPhoto(InputFileChangeEventArgs e)
     {
-        
+
     }
 
     protected override async Task OnInitializedAsync()
     {
         using var context = DbFactory.CreateDbContext();
         Teacher ??= await context.Teachers.FirstOrDefaultAsync(m => m.teacher_id == teacher_id);
+        Disciplines = await context.Disciplines.Where().ToListAsync();
+        TDR = await context.TeachersDisciplinesRelation.Where(t => t.teacher == teacher_id).ToListAsync();
 
         if (Teacher is null)
         {
             NavigationManager.NavigateTo("notfound");
         }
+    }
+
+    void AddDiscipline()
+    {
+        TeacherDisciplineRelation newRelation = 
+        new TeacherDisciplineRelation { teacher = teacher_id, discipline = discipline };
+        newRelation.Teacher = Teacher;
+        newRelation.Discipline = Disciplines.Where(d => d.discipline_id == discipline).First();
+        // if(NewDisciplines.Contains(newRelation))
+        NewDisciplines.Add(newRelation);
     }
 
     // To protect from overposting attacks, enable the specific properties you want to bind to.
