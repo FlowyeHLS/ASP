@@ -2,10 +2,10 @@
 
 namespace RazorPages.Models
 {
-    public enum Grade { A, B, C, D }
+    public enum Grade { A, B, C, D , F}
     public class Enrollment
     {
-        public int EnrollID { get; set; }
+        public int EnrollmentID { get; set; }
         public int CourseID { get; set; }
         public int StudentID { get; set; }
         [DisplayFormat(NullDisplayText ="No grade")]
